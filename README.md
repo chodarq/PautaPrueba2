@@ -48,5 +48,5 @@ biplot(winepca)
 Para efectuar un análisis MDS debemos tener la data escalada y ademas como matrix, no como dataframe. Para esto
 ```R
 winedist<-as.matrix(winedist) #convertir a matriz
+wineMDS<- cmdscale(winedist,k=2,eig=T,x.ret=T) # k=2 dos dimensiones.
 ```
-
