@@ -34,4 +34,4 @@ Si consideramos las primeras dos componentes:
 ```R
 plot(winepca$x[,1],winepca$x[,2],col=as.factor(wine$Cultivar)) # make a scatterplot
 ```
-[[https://github.com/chodarq/PautaPrueba2/blob/master/gafico1.png]]
+![][https://github.com/chodarq/PautaPrueba2/blob/master/gafico1.png]
