@@ -19,12 +19,12 @@ cor(wine2) # para explorar las correlaciones podrian haber usado
 pairs(wine2) # Usando la libreria 
 winescaled<-scale(wine2) #escalado
 winepca<-prcomp(winescaled) # PCA
-
-# Puesto que las desviaciones de cada componente estan en $sdev,
-# obtenemos la varianza como porcentaje con una simple fórmula:
-
+```
+Puesto que las desviaciones de cada componente estan en $sdev, obtenemos la varianza como porcentaje con una simple fórmula:
+```R
 varianzas<- 100*winepca$sdev^2/sum(winepca$sdev^2)
 ```
+
 2) ¿De cuántos componentes resultó su nueva matriz? Justifique
 
 Lo único que tenian que definir es si querían explicar el 80%, 90% o 99% de su varianza con las nuevas componentes. Como mencionamos en clases, no hay una "regla de pulgar" pero idealmente es conveniente elegir un conjunto de variables que expliquen en conjunto mas del 90% de la varianza total, en este caso, las primeras 7 explican 89.4% de la varianza y las primeras 8 un 92.04
