@@ -37,8 +37,8 @@ plot(winepca$x[,1],winepca$x[,2],col=as.factor(wine$Cultivar)) # make a scatterp
 ```
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/gafico1.png)
 
-Lo que el gráfico nos muestra es que existe una buena separación de las variables originales en este nuevo espacio, considerando que esas dos primeras componentes explican algo mas del 50% de la varianza total. 
-Usando biplot podemos ademas ver que variables originales aportan mas a discriminar los grupos. El gráfico nos muestra que a pesar de que 
+Lo que el gráfico nos muestra es que existe una buena separación de las variables originales en este nuevo espacio, considerando que esas dos primeras componentes explican algo mas del 50% de la varianza total. Sin embargo no sabemos cual de las variables originales son las responsables de esta separación. Para eso necesitamos proyectar las variables originales en el nuevo espacio con la función <i>biplot</i>. El gráfico nos muestra que a pesar de que los grupos se separan, no es del todo claro que variable pesa mas que otra, para estas dos dimensiones. A priori se podria decir que los fenoles no flavonoides y la alcalinidad de la ceniza aportan a la componente principal 1 y las prolinas a la componente 2. Para tener mas certeza se necesitaria proyectar con las respantes variables.
+
 ```
 biplot(winepca)
 ```
