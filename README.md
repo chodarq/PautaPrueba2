@@ -13,7 +13,7 @@ Existen varias opciones que podían usar. La que vimos en clases fue <i>prcomp</
 - Las variables, por definición, deben presentar algun grado de correlación. Las no correlacionadas no aportan al análisis. Será evaluado.
 - Los datos estan o no muy correlacionados. Esto es opcional, a veces se hace a veces no, dependiendo del resultado y del ojo del estadistico. No consider al evaluar
 
-```
+```R
 wine2<-wine[,c(2:14)] # Eliminar la variable cultivar del modelo
 cor(wine2) # para explorar las correlaciones podrian haber usado
 pairs(wine2) # Usando la libreria 
@@ -31,7 +31,7 @@ Lo único que tenian que definir es si querían explicar el 80%, 90% o 99% de su
 
 3) ¿Qué puede decir de las observaciones y las variables en el nuevo espacio multidimensional?
 Si consideramos las primeras dos componentes:
-```
+```R
 plot(winepca$x[,1],winepca$x[,2],col=as.factor(wine$Cultivar)) # make a scatterplot
 ```
-[https://github.com/chodarq/PautaPrueba2/blob/master/gafico1.png]
+[[https://github.com/chodarq/PautaPrueba2/blob/master/gafico1.png]]
