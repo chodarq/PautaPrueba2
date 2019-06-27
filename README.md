@@ -7,9 +7,16 @@ wine<-read.csv("https://raw.githubusercontent.com/chodarq/Wine-data-for-PCA-exer
 ```
 1) Efectúe una reducción de datos utilizando la técnica de PCA, explicando claramente las decisiones que utilizó y los supuestos asumidos. Utilice los gráficos que considere adecuados explicando claramente lo que se ve en ellos.
 
-Existen varias opciones que podían usar. La que vimos en clases fue <i>prcomp</i>. Como los datos provienen de mediciones hechas en distintas escalas, es necesario escalar las variables. El código entonces queda: 
-```R
-wine<-read.csv("wine.csv",header=T) #Asignacion de datos a frame
-winescaled<-scale(wine) #escalado
-winepca<-prcomp(winescaled) #PCA
+Existen varias opciones que podían usar. La que vimos en clases fue <i>prcomp</i> y <i>princomp</i>. Consideraciones que hay que tener:
+- Los datos tienen distintas escalas, por lo que hay que escalar. Fundamental y será evaluado
+- La variable "Cultivar" es discreta y no debe incorporarse al modelo. Se evalaurá en funcion de los resultados y explicaciones posteriores
+- Las variables, por definición, deben presentar algun grado de correlación. Las no correlacionadas no aportan al análisis. Será evaluado
+Los datos estan o no muy correlacionados. Esto es opcional, a veces se hace a veces no, dependiendo del resultado y del ojo del estadistico. No consider al evaluar
+
+```
+wine2<-wine[,c(2:9)] # Eliminar la variable cultivar del modelo
+cor(wine2) # para explorar las correlaciones podrian haber usado
+pairs(wine2) # Usando la libreria 
+winescaled<-scale(wine2) #escalado
+winepca<-prcomp(winescaled) # PCA
 ```
