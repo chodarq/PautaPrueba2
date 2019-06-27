@@ -30,13 +30,15 @@ varianzas<- 100*winepca$sdev^2/sum(winepca$sdev^2)
 Lo único que tenian que definir es si querían explicar el 80%, 90% o 99% de su varianza con las nuevas componentes. Como mencionamos en clases, no hay una "regla de pulgar" pero idealmente es conveniente elegir un conjunto de variables que expliquen en conjunto mas del 90% de la varianza total, en este caso, las primeras 7 explican 89.4% de la varianza y las primeras 8 un 92.04
 
 3) ¿Qué puede decir de las observaciones y las variables en el nuevo espacio multidimensional?
+
 Si consideramos las primeras dos componentes, podemos graficar las observaciones en ese espacio con:
 ```R
 plot(winepca$x[,1],winepca$x[,2],col=as.factor(wine$Cultivar)) # make a scatterplot
 ```
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/gafico1.png)
+
 Lo que el gráfico nos muestra es que existe una buena separación de las variables originales en este nuevo espacio, considerando que esas dos primeras componentes explican algo mas del 50% de la varianza total. 
-Usando biplot podemos ademas ver que variables originales aportan mas a discriminar los grupos.
+Usando biplot podemos ademas ver que variables originales aportan mas a discriminar los grupos. El gráfico nos muestra que a pesar de que 
 ```
 biplot(winepca)
 ```
