@@ -1,5 +1,5 @@
 # PautaPrueba2
-Pauta Prueba 2 - Bioestadistica DCSAV
+<u>Pregunta 4</u>
 
 El archivo wine.csv contiene 13 parámetros fisicoquímicos asociados a muestras de vino de tres cultivares distintos: alcohol, ac. málico, ceniza, alcalinidad de la ceniza, magnesio, contenido fenoles, flavonoides, fenoles no flavonoides, proantocianidinas, intensidad color, tinte, OD280_315 y prolinas. Indicación: las tres librerias fuera de las básicas que vienen con R y que podría necesitar, pero no son esenciales son ggplot, factoextra y cluster. Para cargar el archivo ejecute:
 ```R
