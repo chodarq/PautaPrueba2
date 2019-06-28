@@ -45,8 +45,28 @@ biplot(winepca)
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico2.png)
 
 4) Efectúe con los mismos datos un análisis de MDS. Compare y comente el resultado obtenido con el del PCA. (Considere 2 dimensiones)
-Para efectuar un análisis MDS debemos tener la data escalada y ademas como matrix, no como dataframe. Para esto
+Para efectuar un análisis MDS debemos tener la data escalada y ademas como matrix, no como dataframe. Para esto:
 ```R
+winedist<-dist(winescaled,method="euclidean",upper=T,diag=T)
 winedist<-as.matrix(winedist) #convertir a matriz
-wineMDS<- cmdscale(winedist,k=2,eig=T,x.ret=T) # k=2 dos dimensiones.
+wineMDS<- cmdscale(winedist,k=2) # k=2 dos dimensiones.
 ```
+El gráfico podían verlo simplemente con el comando <i>plot</i> o usar <i>ggplot</i> como lo vimos en clases. Lo importante es que al graficar en dos dimensiones es que el resultado es muy similar al obtenido con el PCA, si es que en este usaron la distancia euclidiana. Esto porque al usar euclidiana en el PCA la matriz de covarianza se transforma en la de distancias, que es equivalente a la de PCA. PCA minimiza componentes manteniendo la covarianza, MDS minimza manteniendo distancia. Si estas matrices son equivalentes, los resultados son similares. 
+```R
+plot(wineMDS,col=as.factor(wine$Cultivar))
+# con ggplot
+g <- ggplot(data.frame(wineMDS[,1:2], wine2), 
+            aes(wineMDS[,2], wineMDS[,1],
+                label = rownames(wine2), group=as.factor(wine$Cultivar)))
+
+g + geom_text(aes(color = as.factor(wine$Cultivar)) , 
+              angle=0, show.legend = T, nudge_x = 0.05, nudge_y = 0.15) + 
+  ggtitle("Multi-dimensional Scaling on Wine Data") +
+  geom_point() + theme_classic() + 
+  theme(legend.position = "bottom", legend.title = 
+          element_text(size=10, face="bold"), 
+        legend.text = element_text(size=10, face="bold"))
+``` 
+![](https://github.com/chodarq/PautaPrueba2/blob/master/gafico3.png)
+![](https://github.com/chodarq/PautaPrueba2/blob/master/gafico4.png)
+
