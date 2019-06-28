@@ -67,6 +67,6 @@ g + geom_text(aes(color = as.factor(wine$Cultivar)) ,
           element_text(size=10, face="bold"), 
         legend.text = element_text(size=10, face="bold"))
 ``` 
-![](https://github.com/chodarq/PautaPrueba2/blob/master/gafico3.png)
-![](https://github.com/chodarq/PautaPrueba2/blob/master/gafico4.png)
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico3.png)
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico4.png)
 
