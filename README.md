@@ -100,4 +100,9 @@ ggplot(wine, aes(Ceniza, Magnesio, color = winekm2)) + geom_point(size=4)
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico9.png)
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico10.png)
 
-c)Repita el análisis con K=5 y determine que agrupamiento es mejor
+c) Repita el análisis con K=5 y determine que agrupamiento es mejor
+Para definir que agrupamiento era mejor, bastaba con comparar las razones SSB/SST. En el caso de K=3 esta es de 44.6% y en el caso de K=5 es de 51.4%, por lo que podríamos decir que con este último tenemos un mejor desempeño.
+Podrían alternativamente haber hecho un gráfico de silhouette para cada caso y comparar.
+```R
+winekm<-kmeans(winescaled,centers=5)
+```
