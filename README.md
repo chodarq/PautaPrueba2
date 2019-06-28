@@ -1,5 +1,5 @@
 # PautaPrueba2
-<u>Pregunta 4</u>
+## Pregunta 5
 
 El archivo wine.csv contiene 13 parámetros fisicoquímicos asociados a muestras de vino de tres cultivares distintos: alcohol, ac. málico, ceniza, alcalinidad de la ceniza, magnesio, contenido fenoles, flavonoides, fenoles no flavonoides, proantocianidinas, intensidad color, tinte, OD280_315 y prolinas. Indicación: las tres librerias fuera de las básicas que vienen con R y que podría necesitar, pero no son esenciales son ggplot, factoextra y cluster. Para cargar el archivo ejecute:
 ```R
@@ -70,3 +70,24 @@ g + geom_text(aes(color = as.factor(wine$Cultivar)) ,
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico3.png)
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico4.png)
 
+## Pregunta 6
+
+A partir del mismo archivo wine.csv, efectúe los siguientes análisis, justificando en cada caso sus supuestos al momento de efectuar la agrupación de los datos.
+
+a)Clúster jerárquico. ¿En cuántos grupos definiría Ud. el clúster?
+Aquí no hay una regla, es a ojo de quien hace el análisis. Sin embrago, los datos que tenemos permiten definir bien 4 grupos, usando los linkages Promedio y Completo. Lo único obligatorio, el escalado de los datos.
+```R
+winedist2<-dist(winescaled,method="euclidean",upper=T,diag=T) 
+winehc1<-hclust(winedist2,method="average")
+winehc2<-hclust(winedist2,method="single")
+winehc3<-hclust(winedist2,method="complete")
+plot(winehc1)
+plot(winehc2)
+plot(winehc3)
+```
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico6.png)
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico7.png)
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico8.png)
+
+b)K-means con 3 grupos. Grafique 2 pares de variables, justifique cuales, e interprete los resultados.
+c)Repita el análisis con K=5 y determine que agrupamiento es mejor
