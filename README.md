@@ -74,7 +74,7 @@ g + geom_text(aes(color = as.factor(wine$Cultivar)) ,
 
 A partir del mismo archivo wine.csv, efectúe los siguientes análisis, justificando en cada caso sus supuestos al momento de efectuar la agrupación de los datos.
 
-a)Clúster jerárquico. ¿En cuántos grupos definiría Ud. el clúster?
+a) Clúster jerárquico. ¿En cuántos grupos definiría Ud. el clúster?
 Aquí no hay una regla, es a ojo de quien hace el análisis. Sin embrago, los datos que tenemos permiten definir bien 4 grupos, usando los linkages Promedio y Completo. Lo único obligatorio, el escalado de los datos.
 ```R
 winedist2<-dist(winescaled,method="euclidean",upper=T,diag=T) 
