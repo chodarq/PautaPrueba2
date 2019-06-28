@@ -89,5 +89,15 @@ plot(winehc3)
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico7.png)
 ![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico8.png)
 
-b)K-means con 3 grupos. Grafique 2 pares de variables, justifique cuales, e interprete los resultados.
+b) K-means con 3 grupos. Grafique 2 pares de variables, justifique cuales, e interprete los resultados.
+Nuevamente, se necesitan escalar los datos. El análisis indica que el modelo de 3 grupos tiene una razón SSB/SST de 0.45 lo que no es muy bueno. En términos de la gráfica, dependiendo de lo que se elija es la interpretación. Por ejemplo, si se eligió graficar Fenoles totales vs Prolinas, se puede observar que la agrupación en 3 grupos permite identificar que los vinos del cultivar 1 se consituyen por si en un grupo, a diferencia del cultivar 2 y 3 donde es mas difusa una separación en función de estas dos variables. Si se hubiesen elegido Magnesio y Ceniza, ya todo es mas copmlejo y no se aprecia un grupo predominante con respecto a estas dos variables.
+```R
+winekm<-kmeans(winescaled,centers=3)
+winekm2 <- as.factor(winekm$cluster)
+ggplot(wine, aes(Fenoles.totales, Prolinas, color = winekm2)) + geom_point(size=4)
+ggplot(wine, aes(Ceniza, Magnesio, color = winekm2)) + geom_point(size=4)
+```
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico9.png)
+![](https://github.com/chodarq/PautaPrueba2/blob/master/grafico10.png)
+
 c)Repita el análisis con K=5 y determine que agrupamiento es mejor
